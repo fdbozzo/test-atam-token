@@ -11,7 +11,7 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "8080:8080" # External:Internal
+      - "8080:8080" # "External:Internal"
     networks:
       - localhost
 
@@ -20,9 +20,11 @@ services:
     container_name: test-atam-token
     stdin_open: true
     tty: true
+    environment:
+      - REST_ClIENT_TOKEN_URL=http://auth-vivelibre:8080/token
+    ports:
+      - "8081:8081" # "External:Internal"
     depends_on:
       - auth-vivelibre
-    ports:
-      - "8081:8081" # External:Internal
     networks:
       - localhost

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.atam.pruebatecnica</groupId>
     <artifactId>test-atam-token</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>test-atam-token</name>
     <description>test-atam-token</description>
 

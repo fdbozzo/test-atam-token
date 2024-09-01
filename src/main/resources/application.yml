@@ -13,7 +13,7 @@ logging:
 
 rest-client:
   token:
-    url: http://localhost:8080/token
+    url: ${REST_ClIENT_TOKEN_URL:http://localhost:8080/token}
     username: auth-vivelibre
     password: password
 
