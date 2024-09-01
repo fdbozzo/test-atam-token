@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: test-atam-token
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: info
+    web: info
+    org.springframework: info
+
+rest-client:
+  token:
+    url: http://localhost:8080/token
+    username: auth-vivelibre
+    password: password
+
+
+# Configuración global de OpenAPI
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+#      config-url: /openapi.yml
+#      disable-swagger-default-url: true
+    use-root-path: true
+#      path: /swagger-ui.html
+#      url: /openapi.yml  # /v3/api-docs

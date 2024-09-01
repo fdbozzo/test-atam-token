@@ -1,0 +1,139 @@
+openapi: 3.0.0
+info:
+  version: 3.0.3
+  title: Test
+  description: Ejercicio para consulta de token
+
+servers:
+  - url: 'https://localhost:8081'
+    description: Servidor de desarrollo
+
+tags:
+  - name: Tokens
+    description: Manejo de tokens
+
+paths:
+  /get-token:
+    get:
+      summary: Obtiene un Token
+      description: Obtiene un token de un servicio externo
+      operationId: getToken
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenDto'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401NotAuthenticated'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '405':
+          $ref: '#/components/responses/405MethodNotAllowed'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+
+components:
+  schemas:
+    TokenDto:
+      type: object
+      required:
+        - auth-vivelibre-token
+        - date
+      properties:
+        auth-vivelibre-token:
+          type: string
+          description: Token de validación
+          writeOnly: true
+        date:
+          type: string
+          description: Fecha del token
+          writeOnly: true
+
+    TokenDtoApiRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Nombre de usuario para llamar al servicio Rest externo
+          writeOnly: true
+        password:
+          type: string
+          format: password
+          description: Password para llamar al servicio Rest externo
+          writeOnly: true
+
+    TokenDtoApiResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Token devuelto por el servicio Rest externo
+          readOnly: true
+
+    HttpResponse:
+      description: Http Response
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          default: 200
+          description: HTTP status code
+          example: 200
+        type:
+          type: string
+          default: OK
+          description: The type of the error
+          example: Created operation
+        message:
+          type: string
+          default: Successfully Operation
+          description: The error message details
+          example: The operation was created
+
+  responses:
+    200Ok:
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HttpResponse"
+
+    400BadRequest:
+      description: Invalid Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HttpResponse"
+
+    401NotAuthenticated:
+      description: Not Authenticated
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HttpResponse"
+
+    404NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HttpResponse"
+
+    405MethodNotAllowed:
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HttpResponse"
+
+    500InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/HttpResponse"

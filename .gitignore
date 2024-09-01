@@ -1,0 +1,16 @@
+# Ignore all files in the root directory
+*
+
+# Don't Exclude listed directories
+!src/
+!src/**
+!.mvn/
+!.mvn/**
+
+# Don't Exclude listed files
+!pom.xml
+!mvnw.cmd
+!mvnw
+!README.md
+!.gitignore
+

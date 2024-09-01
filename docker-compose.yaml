@@ -1,0 +1,8 @@
+services:
+  auth-vivelibre:
+    image: skeet15/auth-vivelibre
+    container_name: auth-vivelibre
+    stdin_open: true
+    tty: true
+    ports:
+      - "8080:8080"
