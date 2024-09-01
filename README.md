@@ -4,6 +4,7 @@
 - OpenAPI 3.0
 - Java 17
 - Spring Boot 3.3
+- Maven 3.9
 - Docker
 
 ## Compilación del proyecto con tests
