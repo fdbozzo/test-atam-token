@@ -1,0 +1,3 @@
+rest-client:
+  token:
+    url: http://auth-vivelibre:8080/token

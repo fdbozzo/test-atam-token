@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.atam.pruebatecnica</groupId>
     <artifactId>test-atam-token</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>test-atam-token</name>
     <description>test-atam-token</description>
 
@@ -16,7 +16,7 @@
     </parent>
 
     <properties>
-        <start-class>com.atam.pruebatecnica.TestAtamTokenApplication</start-class>
+        <start-class>com.atam.pruebatecnica.testatamtoken.TestAtamTokenApplication</start-class>
         <java.version>17</java.version>
         <jackson.version>2.17.2</jackson.version>
         <slf4j.version>2.0.16</slf4j.version>
